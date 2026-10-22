@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>וייטנאם 2027 – הטיול שלנו</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@400;600;700&display=swap">
+<style>
+/* Layout: עמודה אחת בגובה טלפון, כותרת עליונה עם ספירה לאחור, טאבים דביקים, כרטיסים לפי ימים */
+:root{
+  --bg:#f3f6f4; --surface:#ffffff; --ink:#15302b; --muted:#56706a; --line:#d6e2dd;
+  --jade:#0f6b5c; --jade-soft:#dcefe9; --lantern:#d9541e; --lantern-soft:#fbe6dc; --gold:#b98a1b;
+  --display:"Frank Ruhl Libre", "David", Georgia, serif;
+  --body:"Assistant", "Arial Hebrew", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1917; --surface:#15231f; --ink:#e6efec; --muted:#9db3ad; --line:#26392f;
+  --jade:#5cc3ab; --jade-soft:#17332c; --lantern:#f08a5d; --lantern-soft:#3a2219; --gold:#e2b84c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1917; --surface:#15231f; --ink:#e6efec; --muted:#9db3ad; --line:#26392f;
+  --jade:#5cc3ab; --jade-soft:#17332c; --lantern:#f08a5d; --lantern-soft:#3a2219; --gold:#e2b84c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;direction:rtl}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{padding-block:28px 18px}
+.eyebrow{font-size:14px;letter-spacing:.06em;color:var(--jade);font-weight:700}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(34px,8vw,52px);line-height:1.05;margin:.15em 0 .2em;text-wrap:balance}
+h1 span{color:var(--lantern)}
+.sub{color:var(--muted);margin:0}
+.count{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;font-variant-numeric:tabular-nums}
+.chip b{color:var(--lantern)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding-block:8px;scrollbar-width:none}
+.tabs button{flex:0 0 auto;font:inherit;font-weight:700;font-size:16px;border:0;background:transparent;color:var(--muted);padding:10px 14px;border-radius:10px;cursor:pointer;min-height:44px}
+.tabs button[aria-selected="true"]{background:var(--jade);color:var(--bg)}
+.tabs button:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--lantern);outline-offset:2px}
+main{padding-block:20px 60px}
+section h2{font-family:var(--display);font-size:28px;margin:0 0 6px}
+section > p.lead{color:var(--muted);margin:0 0 18px}
+.day{display:grid;grid-template-columns:64px 1fr;gap:14px;padding-block:16px;border-bottom:1px solid var(--line)}
+.date{text-align:center;font-variant-numeric:tabular-nums}
+.date .d{font-family:var(--display);font-size:30px;font-weight:900;line-height:1}
+.date .m{font-size:13px;color:var(--muted)}
+.date .n{display:inline-block;margin-top:6px;font-size:12px;background:var(--jade-soft);color:var(--jade);border-radius:6px;padding:1px 6px;font-weight:700}
+.day h3{margin:0;font-size:19px;line-height:1.3}
+.day .where{color:var(--jade);font-weight:700;font-size:15px}
+.day ul{margin:6px 0 0;padding-inline-start:18px}
+.day li{margin-bottom:3px}
+.tip{margin-top:8px;background:var(--lantern-soft);border-radius:10px;padding:8px 12px;font-size:15px}
+.tip b{color:var(--lantern)}
+.tag{display:inline-block;font-size:13px;font-weight:700;border:1px solid var(--line);border-radius:6px;padding:0 7px;margin-inline-start:6px;color:var(--muted);vertical-align:middle}
+.gems{display:grid;gap:14px}
+.gem{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.gem h3{margin:0 0 2px;font-size:19px}
+.gem .near{color:var(--muted);font-size:14px;margin-bottom:6px}
+.gem p{margin:0}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+.field{flex:1 1 140px;display:grid;gap:4px;min-width:0}
+.field label{font-size:14px;font-weight:700;color:var(--muted)}
+.field input{font:inherit;font-size:20px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;font-variant-numeric:tabular-nums;direction:ltr;text-align:right}
+.result{font-family:var(--display);font-size:26px;font-weight:700;color:var(--jade);font-variant-numeric:tabular-nums}
+.quick{display:flex;flex-wrap:wrap;gap:8px}
+.quick button{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;min-height:40px}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:14px;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.temp{font-weight:700}
+.bar{display:inline-block;height:8px;border-radius:4px;background:linear-gradient(to left,var(--lantern),var(--gold),var(--jade));vertical-align:middle}
+.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.list li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.list li b{display:block}
+h3.grp{font-family:var(--display);font-size:22px;margin:26px 0 10px}
+.check label{display:flex;gap:12px;align-items:flex-start;padding:10px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.check input{width:22px;height:22px;accent-color:var(--jade);flex:0 0 auto;margin-top:3px}
+.check input:checked + span{color:var(--muted);text-decoration:line-through}
+.phr{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.phr div{padding:10px 14px;border-bottom:1px solid var(--line)}
+.phr .vn{direction:ltr;text-align:left;font-weight:700;color:var(--jade)}
+.phr .vn small{display:block;font-weight:400;color:var(--muted);direction:rtl;text-align:left}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+@media (max-width:420px){.day{grid-template-columns:52px 1fr}.date .d{font-size:26px}}
+@media (prefers-reduced-motion:no-preference){section{animation:in .25s ease}@keyframes in{from{opacity:.4;transform:translateY(4px)}to{opacity:1}}}
+
+.pls{margin-top:12px;display:grid;gap:8px}
+.plh{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.pl{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 12px;padding:8px 12px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.pl > div:first-child{min-width:0}
+.vnn{color:var(--muted);font-size:14px;margin-inline-start:4px}
+.lk{display:flex;flex-wrap:wrap;gap:6px}
+.lk a{font-size:14px;font-weight:700;color:var(--jade);background:var(--jade-soft);text-decoration:none;border-radius:999px;padding:5px 11px;min-height:34px;display:inline-flex;align-items:center}
+.lk a:hover{background:var(--jade);color:var(--bg)}
+.gem .lk{margin-top:10px}
+a.big{display:block;font-weight:700;color:var(--jade);font-size:17px}
+a:focus-visible{outline:3px solid var(--lantern);outline-offset:2px}
+
+.pl{display:block}
+.plt{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 12px}
+.plt > div:first-child{min-width:0}
+.ax{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:10px 0 2px;font-size:15px;line-height:1.5}
+.ax dt{color:var(--muted);font-weight:700;font-size:13px;padding-top:2px;white-space:nowrap}
+.ax dd{margin:0;min-width:0}
+.ils{color:var(--muted);font-size:14px;white-space:nowrap}
+.gem .ax{border-top:1px solid var(--line);padding-top:10px}
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="eyebrow">3 זוגות · 7–20 במרץ 2027</div>
+  <h1>וייטנאם <span>מצפון למרכז</span></h1>
+  <p class="sub">האנוי · נין בין · מפרץ לאן הא · הוי אן · הואה · סייגון והמקונג</p>
+  <div class="count" id="count"></div>
+</header>
+
+<nav><div class="wrap tabs" role="tablist" id="tabs"></div></nav>
+
+<main class="wrap" id="main"></main>
+
+<script>
+const START = new Date('2027-03-07T00:00:00+02:00');
+const END = new Date('2027-03-20T23:59:00+02:00');
+
+const days = [
+ {d:7,w:'א׳',t:'טיסה לווייטנאם',p:'נתב״ג ← האנוי',i:['טיסה ישירה לנוי באי (האנוי): ארקיע או אל על, כ־10–11.5 שעות','לבוש נוח, גרביים לחץ לטיסה ארוכה, ותרופות בתיק היד'],tip:'שעון וייטנאם מקדים את ישראל ב־5 שעות (ב־7 במרץ). כדאי לישון בטיסה.'},
+ {d:8,w:'ב׳',t:'נחיתה ומנוחה',p:'האנוי',i:['העברה מוזמנת מראש למלון ברובע העתיק או ליד אגם הואן קיאם','ערב רגוע: הליכה סביב האגם וארוחה ראשונה של פו'],tip:'קונים כרטיס eSIM לפני הנסיעה או סים מקומי בשדה, ומתקינים Grab.'},
+ {d:9,w:'ג׳',t:'האנוי הקלאסית',p:'האנוי',i:['בוקר: מקדש הספרות (Văn Miếu), מבנה האוניברסיטה הראשונה של וייטנאם','צהריים: בון צ׳ה (Bún chả) במסעדה מקומית','אחה״צ: מוזיאון האתנולוגיה, מומלץ במיוחד ושקט','ערב: מופע בובות המים (Thăng Long)'],tip:'לחצות כביש: הולכים לאט ובקצב קבוע, בלי לעצור פתאום. האופנועים עוקפים אתכם.'},
+ {d:10,w:'ד׳',t:'נין בין – הא לונג היבשתית',p:'נין בין (יום טיול ברכב פרטי)',i:['שייט בסירת משוטים בטראנג אן בין צוקי גיר ומערות','במקום טאם קוק העמוס: ביצת ואן לונג, שייט שקט ומעט תיירים','חזרה להאנוי בערב, או לינה בנין בין'],tip:'ההליכה למעלה למערת מואה היא 500 מדרגות. אפשר לוותר ולשבת בבית קפה למטה.'},
+ {d:11,w:'ה׳',t:'שייט במפרץ לאן הא',p:'הא לונג / לאן הא',i:['נסיעה כ־2.5 שעות לנמל','ספינת לילה במפרץ לאן הא, שכן הא לונג אבל פחות עמוס','קייאק או סירת במבוק, שקיעה על הסיפון'],tip:'בוחרים ספינה עם תאים בקומה התחתונה או עם מעלית, ושואלים מראש על מדרגות.'},
+ {d:12,w:'ו׳',t:'חזרה וטיסה למרכז',p:'האנוי ← דא נאנג ← הוי אן',i:['טאי צ׳י בבוקר על הסיפון, ארוחת בוקר וחזרה ליבשה','טיסת פנים מהאנוי לדא נאנג (כ־1:20 שעות)','30 דקות נסיעה למלון בהוי אן'],tip:'ביום כזה לא מתכננים שום דבר נוסף. מגיעים, אוכלים, ישנים.'},
+ {d:13,w:'ש׳',t:'העיר העתיקה של הוי אן',p:'הוי אן',i:['מוקדם בבוקר, לפני ההמונים: גשר יפני, בתי סוחרים, מקדשי האספה','תפירת בגד אצל חייט, מוכן תוך יום או יומיים','ערב: פנסי משי ושייט סירה עם נר על הנהר'],tip:'הרחובות בעיר העתיקה סגורים לאופנועים בחלק מהשעות, נעים להליכה.'},
+ {d:14,w:'א׳',t:'כפרים ומים',p:'סביבות הוי אן',i:['כפר הירקות טרא קה, מרחק 3 ק״מ, עם סדנת בישול','סירות סל עגולות ביער הדקלים של קאם טאן','אחה״צ חופשי בחוף אן באנג'],tip:'אפשר להחליף בביקור במקדשי מי סון (בוקר מוקדם, הרבה הליכה בשמש).'},
+ {d:15,w:'ב׳',t:'מעבר האי ואן להואה',p:'הוי אן ← הואה (רכב פרטי)',i:['כביש החוף במעבר האי ואן, נוף מרהיב מעל הים','עצירה בלגונת לאנג קו לארוחת פירות ים','הגעה להואה אחה״צ'],tip:'רכב פרטי לכל הקבוצה עדיף על הרכבת: עוצרים איפה שרוצים.'},
+ {d:16,w:'ג׳',t:'עיר הקיסרים',p:'הואה',i:['המצודה הקיסרית והעיר האסורה','שייט בסירת דרקון לפגודת טיין מו','קבר הקיסר טו דוק, גן שקט עם אגם','ערב: מרק בון בו הואה, מנת הדגל של העיר'],tip:'המצודה ענקית. שוכרים רכב חשמלי (buggy) בכניסה.'},
+ {d:17,w:'ד׳',t:'טסים דרומה',p:'הואה ← הו צ׳י מין (סייגון)',i:['טיסת פנים לסייגון (כ־1:20 שעות)','אחה״צ: הדואר המרכזי וקתדרלת נוטרדאם','ערב: ארוחה בקומה עליונה עם נוף לעיר'],tip:'בסייגון חם בהרבה, 33–34 מעלות. כובע, מים, ומנוחה בצהריים.'},
+ {d:18,w:'ה׳',t:'דלתת המקונג',p:'בן טרה (יום טיול)',i:['בן טרה במקום מי טו העמוס: תעלות קוקוס צרות','סירה קטנה, פירות טרופיים, סדנת סוכריות קוקוס','חזרה לסייגון בערב'],tip:'כ־2 שעות נסיעה לכל כיוון. מגבון לח וכובע רחב.'},
+ {d:19,w:'ו׳',t:'סייגון וחזרה צפונה',p:'סייגון ← האנוי',i:['בוקר: מוזיאון שרידי המלחמה או שוק בן טאן','טיסה אחה״צ להאנוי, לינה ליד האגם'],tip:'קונים קפה וייטנאמי ופלטר פין למזכרת.'},
+ {d:20,w:'ש׳',t:'יום אחרון וטיסה הביתה',p:'האנוי ← נתב״ג',i:['בוקר רגוע: קפה ביצה (Cà phê trứng) ליד האגם','קניות אחרונות ברחוב האנג גאי (משי)','העברה לשדה התעופה כ־3 שעות לפני הטיסה'],tip:'בודקים את שעת הטיסה מול חברת התעופה. הדונג שנשאר כמעט לא ניתן להמרה בישראל.'}
+];
+
+const PL = {"8": [{"he": "אגם הואן קיאם", "vn": "Hồ Hoàn Kiếm", "q": "Hoan Kiem Lake Hanoi", "loc": "מרכז העיר, רובע הואן קיאם", "how": "ברגל מהמלון. סביב האגם כ־1.8 ק״מ של טיילת שטוחה.", "price": "חינם", "pv": null}, {"he": "הרובע העתיק", "vn": "Phố cổ Hà Nội", "q": "Hanoi Old Quarter", "loc": "צפונית לאגם הואן קיאם", "how": "ברגל. בסופי שבוע בערב חלק מהרחובות סגורים לרכב, נוח במיוחד להליכה.", "price": "חינם", "pv": null}], "9": [{"he": "מקדש הספרות", "vn": "Văn Miếu", "q": "Temple of Literature Hanoi", "loc": "58 Quốc Tử Giám, כ־2 ק״מ ממערב לאגם", "how": "Grab מהרובע העתיק, כ־10 דקות.", "price": "70,000 ₫ לאדם", "pv": 70000}, {"he": "מוזיאון האתנולוגיה", "vn": "Bảo tàng Dân tộc học", "q": "Vietnam Museum of Ethnology", "loc": "Nguyễn Văn Huyên, רובע Cầu Giấy, כ־7–8 ק״מ ממערב לאגם", "how": "Grab כ־20–30 דקות, כ־80,000–130,000 ₫ לרכב. פתוח ג׳–א׳ 8:30–17:30, סגור בימי שני.", "price": "40,000 ₫ לאדם", "pv": 40000}, {"he": "תיאטרון בובות המים", "vn": "Nhà hát Múa rối Thăng Long", "q": "Thang Long Water Puppet Theatre", "loc": "57B Đinh Tiên Hoàng, כ־200 מטר מהאגם", "how": "ברגל. מופעים ב־16:10, 17:20, 18:30 ו־20:00, כ־50 דקות. להזמין 3–7 ימים מראש.", "price": "100,000 / 150,000 / 200,000 ₫ לפי שורה", "pv": 150000}], "10": [{"he": "טראנג אן", "vn": "Tràng An", "q": "Trang An Ninh Binh", "loc": "נין בין, כ־100 ק״מ דרומית להאנוי", "how": "רכב פרטי לקבוצה, כ־2 שעות (מומלץ). חלופות: אוטובוס כ־2 שעות או רכבת 2–3 שעות. סירות יוצאות 7:00–16:00. מסלול 3 הושבת ביולי 2026 בגלל מים גבוהים במערות.", "price": "300,000 ₫ לאדם כולל סירה (מ־1.1.2026)", "pv": 300000}, {"he": "ביצת ואן לונג", "vn": "Vân Long", "q": "Van Long Nature Reserve", "loc": "כ־20 ק״מ צפונית לטראנג אן", "how": "באותו רכב, כ־30 דקות מטראנג אן. שייט של שעה עד שעה וחצי.", "price": "כ־100,000 ₫ לאדם", "pv": 100000}, {"he": "מערת מואה", "vn": "Hang Múa", "q": "Hang Mua Ninh Binh", "loc": "ליד טאם קוק, כ־6 ק״מ מטראנג אן", "how": "באותו רכב. כ־500 מדרגות לתצפית. אפשר להסתפק בגן ובאגם למטה.", "price": "150,000 ₫ לאדם (מ־1.4.2026)", "pv": 150000}], "11": [{"he": "מפרץ לאן הא", "vn": "Vịnh Lan Hạ", "q": "Lan Ha Bay", "loc": "ליד האי קאט בא, צמוד למפרץ הא לונג", "how": "ההסעה של חברת השייט אוספת מהרובע העתיק, 2.5–3.5 שעות. לוודא שההסעה כלולה במחיר.", "price": "לילה אחד: כ־$105–160 לאדם (בסיסי), $145–195 (בינוני), $210–350 (יוקרה)", "pv": null}, {"he": "מפרץ הא לונג", "vn": "Vịnh Hạ Long", "q": "Ha Long Bay", "loc": "מחוז קוואנג נין, כ־170 ק״מ מהאנוי", "how": "דרך חברת השייט. יציאה לרוב מנמל טואן צ׳או.", "price": "אגרת מפרץ 290,000 ₫ לאדם, לרוב כלולה במחיר השייט", "pv": null}], "12": [{"he": "העיר העתיקה של הוי אן", "vn": "Phố cổ Hội An", "q": "Hoi An Ancient Town", "loc": "כ־30 ק״מ דרומית לדא נאנג", "how": "מהשדה בדא נאנג כ־45 דקות ברכב. בעיר עצמה ברגל: רחובות סגורים לרכב 9:00–11:00 ו־15:00–21:30.", "price": "לפי ההחלטה החדשה: 20,000–30,000 ₫ לכל אתר. עד כה: כרטיס של 120,000 ₫ ל־5 אתרים. לבדוק בקופה", "pv": 20000}], "13": [{"he": "הגשר היפני", "vn": "Chùa Cầu", "q": "Japanese Covered Bridge Hoi An", "loc": "קצה מערבי של הרחוב הראשי Trần Phú", "how": "ברגל, בתוך העיר העתיקה.", "price": "כלול בכרטיס העיר העתיקה", "pv": null}, {"he": "שוק הלילה והפנסים", "vn": "Chợ đêm Hội An", "q": "Hoi An night market lanterns", "loc": "האי אן הוי, מעבר לגשר מהעיר העתיקה", "how": "ברגל, מהשקיעה.", "price": "כניסה חינם. 3 פנסי נר לנהר: כ־20,000 ₫. שייט סירה: מתמקחים על המחיר מראש", "pv": null}], "14": [{"he": "כפר הירקות טרא קה", "vn": "Làng rau Trà Quế", "q": "Tra Que vegetable village", "loc": "כ־3 ק״מ צפונית לעיר העתיקה", "how": "אופניים מהמלון כ־15 דקות, או Grab כ־10 דקות.", "price": "20,000 ₫ לאדם. סדנת בישול בתשלום נפרד", "pv": 20000}, {"he": "יער הקוקוס קאם טאן", "vn": "Rừng dừa Bảy Mẫu", "q": "Bay Mau coconut forest Cam Thanh", "loc": "קאם טאן, כ־5 ק״מ מזרחית לעיר", "how": "Grab כ־15 דקות.", "price": "כניסה 30,000 ₫ לאדם + סירת סל 150,000 ₫ לזוג", "pv": 105000}, {"he": "חוף אן באנג", "vn": "Biển An Bàng", "q": "An Bang Beach", "loc": "כ־5 ק״מ צפונית לעיר העתיקה", "how": "אופניים כ־20 דקות או Grab כ־10 דקות.", "price": "חינם", "pv": null}, {"he": "מקדשי מי סון", "vn": "Thánh địa Mỹ Sơn", "q": "My Son Sanctuary", "loc": "כ־40 ק״מ מערבית להוי אן", "how": "רכב, כשעה לכל כיוון. כדאי להגיע ב־6:30 לפני החום. פתוח 6:30–17:00.", "price": "לפי ההחלטה החדשה 40,000 ₫ (קודם 150,000 ₫). לבדוק בקופה", "pv": 40000}], "15": [{"he": "מעבר האי ואן", "vn": "Đèo Hải Vân", "q": "Hai Van Pass", "loc": "בין דא נאנג להואה", "how": "רכב פרטי מהמלון בהוי אן עד המלון בהואה: כ־120 ק״מ, 3.5–4 שעות עם עצירות. מחיר קבוע לרכב (4, 7 או 16 מקומות). להזמין מראש.", "price": "חינם. משלמים רק על הרכב", "pv": null}, {"he": "לגונת לאנג קו", "vn": "Lăng Cô", "q": "Lang Co Bay", "loc": "למרגלות מעבר האי ואן, בצד של הואה", "how": "עצירה באותה נסיעה.", "price": "חינם. ארוחת פירות ים בתשלום", "pv": null}], "16": [{"he": "המצודה הקיסרית", "vn": "Đại Nội Huế", "q": "Imperial City Hue", "loc": "גדה צפונית של נהר הבושם, מרכז הואה", "how": "Grab או ברגל מהמלונות בגדה הדרומית. מ־16 במרץ: פתוח 6:30–17:30.", "price": "200,000 ₫ לאדם. כרטיס משולב עם 2 קברים: 420,000 ₫", "pv": 200000}, {"he": "פגודת טיין מו", "vn": "Chùa Thiên Mụ", "q": "Thien Mu Pagoda", "loc": "כ־5 ק״מ מערבית למצודה, על הנהר", "how": "סירת דרקון מהרציף במרכז העיר, או Grab כ־15 דקות.", "price": "כניסה חינם. סירת דרקון: 250,000 ₫ לסירה (עד 12 אנשים)", "pv": null}, {"he": "קבר טו דוק", "vn": "Lăng Tự Đức", "q": "Tomb of Tu Duc", "loc": "כ־7 ק״מ דרומית למרכז הואה", "how": "רכב או Grab, כ־20 דקות.", "price": "150,000 ₫ לאדם, או בכרטיס המשולב", "pv": 150000}], "17": [{"he": "הדואר המרכזי", "vn": "Bưu điện Sài Gòn", "q": "Saigon Central Post Office", "loc": "רובע 1, מול קתדרלת נוטרדאם", "how": "ברגל או Grab קצר.", "price": "חינם", "pv": null}, {"he": "קתדרלת נוטרדאם", "vn": "Nhà thờ Đức Bà", "q": "Notre-Dame Cathedral Basilica of Saigon", "loc": "רובע 1, ליד הדואר המרכזי", "how": "ברגל. הקתדרלה בשיפוץ ופתוחה רק לתפילות, אז רואים אותה מבחוץ.", "price": "חינם", "pv": null}], "18": [{"he": "בן טרה", "vn": "Bến Tre", "q": "Ben Tre Mekong Delta", "loc": "כ־85 ק״מ דרומית לסייגון", "how": "יום טיול פרטי, כ־1.5 שעות לכל כיוון, סה״כ כ־7.5 שעות.", "price": "יום טיול פרטי: מכ־$39 לאדם. כניסות לא כלולות", "pv": null}], "19": [{"he": "מוזיאון שרידי המלחמה", "vn": "Bảo tàng Chứng tích Chiến tranh", "q": "War Remnants Museum", "loc": "28 Võ Văn Tần, רובע 3 לשעבר", "how": "כ־15 דקות הליכה מהדואר המרכזי. פתוח 7:30–17:30.", "price": "60,000 ₫. גיל 60 ומעלה: 30,000 ₫ (מ־1.10.2026)", "pv": 30000}, {"he": "שוק בן טאן", "vn": "Chợ Bến Thành", "q": "Ben Thanh Market", "loc": "רובע 1, מרכז סייגון", "how": "ברגל או Grab. כ־15 דקות הליכה מהמוזיאון.", "price": "כניסה חינם. מתמקחים", "pv": null}], "20": [{"he": "קפה ג׳יאנג (קפה ביצה)", "vn": "Cà phê Giảng", "q": "Cafe Giang Hanoi egg coffee", "loc": "39 Nguyễn Hữu Huân, הרובע העתיק", "how": "ברגל, כ־5 דקות מהאגם.", "price": "כוס קפה במחיר עממי, משלמים במזומן", "pv": null}, {"he": "רחוב האנג גאי", "vn": "Phố Hàng Gai", "q": "Hang Gai street Hanoi", "loc": "הרובע העתיק, צפון־מערבית לאגם", "how": "ברגל.", "price": "חינם. משי לפי משקל ואיכות, מתמקחים בעדינות", "pv": null}]};
+const GEM = {"ביצת ואן לונג": {"loc": "כ־20 ק״מ צפונית לטראנג אן", "how": "באותו רכב, כ־30 דקות מטראנג אן. שייט של שעה עד שעה וחצי.", "price": "כ־100,000 ₫ לאדם", "pv": 100000}, "גשר לונג ביין בזריחה": {"loc": "קצה צפון־מזרחי של הרובע העתיק", "how": "ברגל כ־15 דקות מהאגם, או Grab קצר. המעבר להולכי רגל בצד הגשר.", "price": "חינם", "pv": null}, "אגם טרוק באך": {"loc": "ליד האגם המערבי, כ־3 ק״מ צפונית להואן קיאם", "how": "Grab כ־10 דקות.", "price": "חינם. קפה בבתי הקפה סביב", "pv": null}, "כפר הקדרות טאן הא": {"loc": "כ־3 ק״מ מערבית לעיר העתיקה", "how": "אופניים כ־15 דקות או Grab. פתוח 8:00–17:30.", "price": "35,000 ₫ לאדם, כולל כלי קרמיקה במתנה", "pv": 35000}, "גשר טאן טואן": {"loc": "כפר טאן טואן, כ־7 ק״מ ממזרח להואה", "how": "Grab או רכב, כ־20 דקות.", "price": "חינם", "pv": null}, "בתי הגן של טוי ביאו": {"loc": "כ־6 ק״מ דרום־מערבית להואה, בדרך לקברים", "how": "רכב או Grab. אפשר לשלב עם קבר טו דוק באותו יום.", "price": "כניסה סמלית בחלק מהבתים", "pv": null}, "לגונת טאם זאנג": {"loc": "צפונית להואה, לאורך החוף", "how": "רכב, 30–45 דקות. שייט עם דייגים מקומיים בתיאום.", "price": "חינם. סירה בתשלום", "pv": null}, "אי טאן לוק (מה בון)": {"loc": "כ־85 ק״מ דרומית לסייגון", "how": "יום טיול פרטי, כ־1.5 שעות לכל כיוון, סה״כ כ־7.5 שעות.", "price": "יום טיול פרטי: מכ־$39 לאדם. כניסות לא כלולות", "pv": null}};
+
+const gems = [
+ {n:'ביצת ואן לונג',q:'Van Long Nature Reserve',near:'נין בין',p:'אותו נוף צוקי גיר כמו טאם קוק, בלי התורים. שייט שקט בסירת משוטים, עם סיכוי לראות קופי לנגור נדירים על הצוקים.'},
+ {n:'גשר לונג ביין בזריחה',q:'Long Bien Bridge',near:'האנוי',p:'גשר פלדה מתקופת הצרפתים. בבוקר מוקדם רואים מעליו גינות ירק על גדות הנהר האדום ושוק סיטונאי מתחת.'},
+ {n:'אגם טרוק באך',q:'Truc Bach Lake',near:'האנוי',p:'אגם קטן בצמוד לאגם המערבי, מוקף בתי קפה מקומיים. מקום ישיבה נעים עם קפה ביצה, בלי מוכרים מסביב.'},
+ {n:'כפר הקדרות טאן הא',q:'Thanh Ha pottery village',near:'הוי אן',p:'כפר קדרים בן מאות שנים על הנהר. רואים עבודה על אובניים ואפשר לנסות בעצמכם.'},
+ {n:'גשר טאן טואן',q:'Thanh Toan bridge Hue',near:'הואה',p:'גשר עץ מקורה מהמאה ה־18 בין שדות אורז, כ־7 ק״מ מהעיר. מגיעים ברכב, מעט מאוד תיירים.'},
+ {n:'בתי הגן של טוי ביאו',q:'Thuy Bieu village Hue',near:'הואה',p:'כפר של בתי עץ מסורתיים עם מטעי פומלה. חלקם פתוחים לביקור ולארוחה ביתית.'},
+ {n:'לגונת טאם זאנג',q:'Tam Giang lagoon',near:'בין הואה להוי אן',p:'הלגונה הגדולה בדרום־מזרח אסיה, עם בתי דייגים על כלונסאות. מתאים כעצירה בדרך.'},
+ {n:'אי טאן לוק (מה בון)',q:'Ben Tre coconut canals Mekong',near:'בן טרה',p:'מטעי קוקוס ותעלות צרות, הרבה יותר שקט ממסלולי המקונג הרגילים.'}
+];
+
+const weather = [
+ {p:'האנוי',lo:17,hi:23,r:'ערפל, טפטוף קל, לח',c:'שכבות + מעיל רוח דק'},
+ {p:'נין בין / לאן הא',lo:17,hi:22,r:'אובך ועננות, אפשר טפטוף',c:'סוודר לערב על הספינה'},
+ {p:'הוי אן / דא נאנג',lo:21,hi:27,r:'נעים ויבש ברובו',c:'קיצי, כובע, קרם הגנה'},
+ {p:'הואה',lo:20,hi:26,r:'מתחיל להתייבש, גשם קל אפשרי',c:'קיצי + מטרייה מתקפלת'},
+ {p:'סייגון / מקונג',lo:25,hi:34,r:'חם ויבש, עונה יבשה',c:'בגדי כותנה, מים בכל רגע'}
+];
+
+const tabs = [
+ {id:'route',l:'מסלול'},{id:'gems',l:'פינות שקטות'},{id:'money',l:'מטבע'},
+ {id:'weather',l:'מזג אוויר'},{id:'practical',l:'מידע מעשי'},{id:'pack',l:'ציוד'},{id:'words',l:'מילים'}
+];
+
+const pack = ['דרכון בתוקף 6 חודשים לפחות + צילום','ויזה אלקטרונית מודפסת','ביטוח נסיעות כולל מצבים קודמים','תרופות קבועות לכל התקופה + מרשם באנגלית','דולרים במזומן, שטרות חדשים ונקיים','כרטיס אשראי + כרטיס גיבוי','eSIM או סים מקומי','מטען נייד ושקע מתאם (רוב השקעים מתאימים לתקע ישראלי)','נעלי הליכה נוחות עם אחיזה + סנדלים','מעיל רוח דק וסוודר לצפון','כובע, משקפי שמש, קרם הגנה','דוחה יתושים','מטרייה מתקפלת','בגד מכסה כתפיים וברכיים למקדשים','מגבונים לחים וג׳ל לחיטוי','כדורים לשלשול וכאבי בטן','משקפיים רזרביים'];
+
+const phrases = [
+ ['שלום','Xin chào','סין צ׳או'],['תודה','Cảm ơn','קאם אֶן'],['כמה זה עולה?','Bao nhiêu tiền?','באו נייֵו טיֵן'],
+ ['לא חריף בבקשה','Không cay','חוֹנג קאי'],['חשבון בבקשה','Tính tiền','טין טיֵן'],['טעים מאוד','Ngon quá','נגון קוָוה'],
+ ['לא, תודה','Không, cảm ơn','חוֹנג, קאם אֶן'],['שירותים','Nhà vệ sinh','ניא וֶה סין'],['בלי קרח','Không đá','חוֹנג דָא']
+];
+
+const enc = encodeURIComponent;
+const L = {
+ img: q => 'https://www.google.com/search?tbm=isch&q='+enc(q),
+ map: q => 'https://www.google.com/maps/search/?api=1&query='+enc(q+', Vietnam'),
+ info: q => 'https://translate.google.com/translate?sl=en&tl=iw&u='+enc('https://en.wikipedia.org/w/index.php?search='+q)
+};
+const links = q => `<div class="lk"><a href="${L.img(q)}" target="_blank" rel="noopener">תמונות</a><a href="${L.map(q)}" target="_blank" rel="noopener">מפה</a><a href="${L.info(q)}" target="_blank" rel="noopener">מידע בעברית</a></div>`;
+const ils = v => { const r = store.get('rates',{usd:26200,ils:8550}); return Math.round(v/(r.ils||8550)); };
+const access = x => `<dl class="ax"><dt>מיקום</dt><dd>${x.loc}</dd><dt>איך מגיעים</dt><dd>${x.how}</dd><dt>מחיר</dt><dd><b>${x.price}</b>${x.pv?` <span class="ils">≈ ${ils(x.pv)} ₪ לאדם</span>`:''}</dd></dl>`;
+const placeList = arr => arr ? `<div class="pls"><div class="plh">מקומות היום</div>${arr.map(x=>`<div class="pl"><div class="plt"><div><b>${x.he}</b> <span class="vnn">${x.vn}</span></div>${links(x.q)}</div>${access(x)}</div>`).join('')}</div>` : '';
+
+const $ = s => document.querySelector(s);
+const store = {get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+function countdown(){
+  const now = new Date(), el=$('#count');
+  const day = 86400000;
+  let html='';
+  if(now < START){ html=`<span class="chip">עוד <b>${Math.ceil((START-now)/day)}</b> ימים לטיסה</span>`; }
+  else if(now <= END){ html=`<span class="chip">יום <b>${Math.floor((now-START)/day)+1}</b> מתוך 14</span>`; }
+  else html='<span class="chip">חזרנו! איך היה?</span>';
+  html += '<span class="chip">14 ימים · 6 תחנות</span><span class="chip">ויזה: <b>$25</b> לאדם</span>';
+  el.innerHTML = html;
+}
+
+function render(id){
+  const m = $('#main'); let h='';
+  if(id==='route'){
+    h = `<section><h2>המסלול יום אחר יום</h2><p class="lead">קצב נינוח: נסיעה ארוכה אחת לכל היותר ביום, ובכל אזור לפחות שני לילות. רכב פרטי עם נהג לשש נפשות הוא הדרך הנוחה והמשתלמת.</p>`+
+    days.map((x,i)=>`<div class="day"><div class="date"><div class="d">${x.d}</div><div class="m">מרץ · ${x.w}</div><div class="n">יום ${i+1}</div></div><div><div class="where">${x.p}</div><h3>${x.t}</h3><ul>${x.i.map(a=>`<li>${a}</li>`).join('')}</ul><div class="tip"><b>טיפ:</b> ${x.tip}</div>${placeList(PL[x.d])}</div></div>`).join('')+
+    `<p class="note">מחירי הכניסה נבדקו באוקטובר 2026 ממקורות תיירות עדכניים. בהוי אן ובמי סון אושרה בפברואר 2026 שיטת מחירים חדשה, ולכן כדאי לוודא בקופה. ההמרה לשקלים מתעדכנת לפי השער שבמסך המטבע.</p><p class="note">אם הדרום (ימים 11–13 של המסלול) מרגיש עמוס מדי, אפשר להישאר עוד יומיים בהוי אן ולטוס חזרה להאנוי מדא נאנג.</p></section>`;
+  }
+  if(id==='gems'){
+    h = `<section><h2>פינות יפות ולא מתוירות</h2><p class="lead">מקומות קרובים למסלול, שקטים יותר מהאתרים המפורסמים. רובם מתאימים להליכה קלה. ליד כל מקום: תמונות, מיקום במפה ומידע מתורגם לעברית.</p><div class="gems">`+
+    gems.map(g=>`<div class="gem"><h3>${g.n}</h3><div class="near">ליד ${g.near}</div><p>${g.p}</p>${GEM[g.n]?access(GEM[g.n]):''}${links(g.q)}</div>`).join('')+`</div></section>`;
+  }
+  if(id==='money'){
+    const r = store.get('rates',{usd:26200,ils:8550});
+    h = `<section><h2>המטבע: דונג וייטנאמי (₫ VND)</h2><p class="lead">הרבה אפסים. טריק לראש: מורידים שלושה אפסים ומחלקים ב־8.5, וזה בערך בשקלים. 100,000 ₫ ≈ 12 ₪.</p>
+    <div class="calc">
+      <div class="row">
+        <div class="field"><label for="vnd">דונג (₫)</label><input id="vnd" inputmode="numeric" value="100,000"></div>
+        <div class="field"><label for="ils">שקלים (₪)</label><input id="ils" inputmode="decimal"></div>
+        <div class="field"><label for="usd">דולרים ($)</label><input id="usd" inputmode="decimal"></div>
+      </div>
+      <div class="quick" id="quick">${[10000,20000,50000,100000,200000,500000].map(v=>`<button data-v="${v}">${v.toLocaleString('en')} ₫</button>`).join('')}</div>
+      <div class="row">
+        <div class="field"><label for="rUsd">שער: ₫ לדולר</label><input id="rUsd" inputmode="numeric" value="${r.usd}"></div>
+        <div class="field"><label for="rIls">שער: ₫ לשקל</label><input id="rIls" inputmode="numeric" value="${r.ils}"></div>
+      </div>
+      <p class="note" style="margin:0">השערים לפי סתיו 2026. עדכנו אותם לפני הנסיעה והם יישמרו בדפדפן שלכם.</p>
+    </div>
+    <h3 class="grp">טיפים לכסף</h3><ul class="list">
+      <li><b>להביא דולרים במזומן</b>שטרות של $100 חדשים ללא קרעים מקבלים את השער הטוב ביותר. מחליפים בעיר ולא בשדה.</li>
+      <li><b>זהירות משטרים דומים</b>20,000 ו־500,000 כחולים שניהם, ו־10,000 דומה ל־200,000. מומלץ לסדר את הארנק לפי גודל.</li>
+      <li><b>כספומטים</b>יש בכל מקום. משיכה בודדת מוגבלת לרוב לכ־2–5 מיליון ₫ עם עמלה, אז מושכים סכום גדול פעם אחת.</li>
+      <li><b>אשראי</b>מתקבל במלונות ובמסעדות טובות. בשווקים, בדוכני אוכל ובמוניות קטנות רק מזומן.</li>
+      <li><b>טיפים</b>לא חובה. לנהג ולמדריך ביום טיול נהוג כ־100,000–200,000 ₫ לזוג.</li>
+      <li><b>מיקוח</b>מקובל בשווקים, לא במסעדות או בחנויות עם מחירים מודבקים.</li>
+    </ul></section>`;
+  }
+  if(id==='weather'){
+    h = `<section><h2>מזג אוויר במרץ</h2><p class="lead">בעונה הזו וייטנאם מתחממת מצפון לדרום: קריר ואפרפר בהאנוי, נעים במרכז, חם בסייגון. אורזים שכבות.</p>
+    <div class="tw"><table><thead><tr><th>אזור</th><th>טמפ׳ (°C)</th><th></th><th>אופי</th><th>מה ללבוש</th></tr></thead><tbody>`+
+    weather.map(w=>`<tr><td><b>${w.p}</b></td><td class="temp">${w.lo}–${w.hi}</td><td><span class="bar" style="width:${(w.hi-w.lo)*6}px;margin-inline-start:${(w.lo-15)*4}px"></span></td><td>${w.r}</td><td>${w.c}</td></tr>`).join('')+
+    `</tbody></table></div><p class="note">ממוצעים רב־שנתיים. שבוע לפני הטיסה כדאי לבדוק תחזית עדכנית לכל עיר.</p></section>`;
+  }
+  if(id==='practical'){
+    const useful=[
+     ['אתר הוויזה הרשמי','evisa.gov.vn – הגשת ויזה אלקטרונית. האתר באנגלית, יש תרגום מלא בהמשך הדף.','https://evisa.gov.vn'],
+     ['רשות התיירות של וייטנאם','vietnam.travel – אתר התיירות הרשמי, מתורגם לעברית.','https://translate.google.com/translate?sl=en&tl=iw&u='+enc('https://vietnam.travel')],
+     ['מדריך ויקימסע לווייטנאם','מדריך מטיילים מפורט, מתורגם אוטומטית לעברית.','https://translate.google.com/translate?sl=en&tl=iw&u='+enc('https://en.wikivoyage.org/wiki/Vietnam')],
+     ['אפליקציית Grab','מוניות במחיר קבוע מראש.','https://www.grab.com/vn/en/'],
+     ['בית חב״ד בהאנוי','מיקום על המפה.','https://www.google.com/maps/search/?api=1&query='+enc('Chabad Hanoi')],
+     ['בית חב״ד בסייגון','מיקום על המפה.','https://www.google.com/maps/search/?api=1&query='+enc('Chabad Ho Chi Minh City')],
+     ['שגרירות ישראל בהאנוי','מיקום על המפה.','https://www.google.com/maps/search/?api=1&query='+enc('Embassy of Israel Hanoi')]
+    ];
+    h = `<section><h2>מידע מעשי</h2>
+    <h3 class="grp" style="margin-top:6px">קישורים שימושיים</h3><ul class="list">${useful.map(u=>`<li><a class="big" href="${u[2]}" target="_blank" rel="noopener">${u[0]}</a>${u[1]}</li>`).join('')}</ul>
+    <h3 class="grp">כניסה וטיסות</h3><ul class="list">
+      <li><b>ויזה אלקטרונית חובה</b>ישראלים צריכים ויזה מראש. מגישים באתר הרשמי evisa.gov.vn בלבד (הקישור למעלה) (יש אתרים מתחזים שגובים יותר). עלות $25 לכניסה אחת, תוקף עד 90 יום. להגיש כ־3–4 שבועות לפני.</li>
+      <li><b>טיסות ישירות</b>ארקיע טסה לאנוי מינואר 2026, ואל על מוסיפה קו ישיר מ־24 באוקטובר 2026, 3 פעמים בשבוע. כדאי להשוות ולהזמין מוקדם, מרץ הוא עונת שיא.</li>
+      <li><b>טיסות פנים</b>וייטנאם איירליינס, במבו, וייטג׳ט. לשים לב למשקל המזוודה המותר בכל כרטיס.</li>
+    </ul>
+    <h3 class="grp">בריאות ובטיחות לגיל 60+</h3><ul class="list">
+      <li><b>ביקור במרפאת מטיילים</b>4–6 שבועות לפני. בדרך כלל ממליצים על הפטיטיס A וטיפוס.</li>
+      <li><b>ביטוח נסיעות</b>עם כיסוי מצבים רפואיים קודמים ופינוי רפואי. בתי חולים בינלאומיים טובים יש בהאנוי, דא נאנג וסייגון.</li>
+      <li><b>מים</b>רק מבקבוק, גם לצחצוח שיניים. קרח במסעדות מסודרות בדרך כלל תעשייתי ובטוח.</li>
+      <li><b>מדרכות</b>לא אחידות ותפוסות באופנועים. נעליים עם אחיזה, ותמיד להסתכל למטה.</li>
+      <li><b>מקרה חירום</b>משטרה 113 · אמבולנס 115 · כיבוי 114. שגרירות ישראל נמצאת בהאנוי.</li>
+    </ul>
+    <h3 class="grp">אפליקציות שכדאי להתקין</h3><ul class="list">
+      <li><b>Grab</b>מוניות ורכבים במחיר קבוע מראש, בלי ויכוחים. יש גם רכבים ל־7 נוסעים.</li>
+      <li><b>Google Translate</b>להוריד וייטנאמית לשימוש בלי אינטרנט. מצלמת התפריט עובדת מצוין.</li>
+      <li><b>Google Maps / Maps.me</b>להוריד מפות לא מקוונות של כל עיר.</li>
+      <li><b>WhatsApp</b>לקבוצה של שלושת הזוגות. הנהגים המקומיים משתמשים בעיקר ב־Zalo.</li>
+    </ul>
+    <h3 class="grp">אוכל</h3><ul class="list">
+      <li><b>מנות חובה</b>פו (האנוי), בון צ׳ה (האנוי), קאו לאו (הוי אן), באן מי (הוי אן), בון בו הואה (הואה), באן שאו (סייגון).</li>
+      <li><b>כשרות</b>יש בית חב״ד בהאנוי ובסייגון עם ארוחות שבת. מומלץ להודיע מראש.</li>
+      <li><b>רגישות לחריף או לבוטנים</b>לכתוב בווייטנאמית על פתק ולהראות למלצר.</li>
+    </ul></section>`;
+  }
+  if(id==='pack'){
+    const done = store.get('pack',{});
+    const c = Object.values(done).filter(Boolean).length;
+    h = `<section><h2>רשימת ציוד</h2><p class="lead">מסמנים מה כבר ארוז. הסימון נשמר במכשיר שלכם. ארוזים: <b id="pc">${c}</b> מתוך ${pack.length}</p><div class="check">`+
+    pack.map((p,i)=>`<label><input type="checkbox" id="pk${i}" data-i="${i}" ${done[i]?'checked':''}><span>${p}</span></label>`).join('')+`</div></section>`;
+  }
+  if(id==='words'){
+    h = `<section><h2>מילים שימושיות</h2><p class="lead">וייטנאמית היא שפה טונאלית, אז ההגייה כאן מקורבת. חיוך ותנועת יד עובדים תמיד.</p><div class="phr">`+
+    phrases.map(p=>`<div>${p[0]}</div><div class="vn">${p[1]}<small>${p[2]}</small></div>`).join('')+`</div></section>`;
+  }
+  m.innerHTML = h;
+  if(id==='money') bindMoney();
+  if(id==='pack') bindPack();
+}
+
+function num(s){return parseFloat(String(s).replace(/[^\d.]/g,''))||0}
+function fmt(n,d=0){return n.toLocaleString('en',{maximumFractionDigits:d})}
+function bindMoney(){
+  const v=$('#vnd'),i=$('#ils'),u=$('#usd'),ru=$('#rUsd'),ri=$('#rIls');
+  const from=src=>{
+    const RU=num(ru.value)||26200, RI=num(ri.value)||8550;
+    let vnd = src==='v'?num(v.value):src==='i'?num(i.value)*RI:src==='u'?num(u.value)*RU:num(v.value);
+    if(src!=='v') v.value=fmt(Math.round(vnd));
+    if(src!=='i') i.value=fmt(vnd/RI,1);
+    if(src!=='u') u.value=fmt(vnd/RU,2);
+  };
+  v.addEventListener('input',()=>from('v'));i.addEventListener('input',()=>from('i'));u.addEventListener('input',()=>from('u'));
+  [ru,ri].forEach(x=>x.addEventListener('input',()=>{store.set('rates',{usd:num(ru.value),ils:num(ri.value)});from('x')}));
+  $('#quick').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;v.value=fmt(+b.dataset.v);from('v')});
+  from('v');
+}
+function bindPack(){}
+$('#main').addEventListener('change',e=>{
+    if(!e.target.matches('input[data-i]'))return;
+    const d=store.get('pack',{}); d[e.target.dataset.i]=e.target.checked; store.set('pack',d);
+    $('#pc').textContent=Object.values(d).filter(Boolean).length;
+  });
+
+function select(id){
+  document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.id===id));
+  render(id); store.set('tab',id);
+}
+$('#tabs').innerHTML = tabs.map(t=>`<button role="tab" data-id="${t.id}">${t.l}</button>`).join('');
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){select(b.dataset.id);window.scrollTo({top:0})}});
+const h0 = location.hash.slice(1);
+select(tabs.some(t=>t.id===h0)?h0:store.get('tab','route'));
+countdown();
+</script>
+
+</body>
+</html>
